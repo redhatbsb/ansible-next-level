@@ -48,4 +48,4 @@
       host: "{{ public_ip }}"
       port: 22
       state: started
-      timeout: 60    
+      timeout: 180    
