@@ -10,3 +10,15 @@
       name: mariadb
       state: started
       enabled: yes
+
+  - name: Cria database 'quarkus'
+    mysql_db:
+      name: quarkus
+      state: present      
+
+  - name: Create quarkus user
+    mysql_user:
+      name: quarkus
+      password: quarkus
+      priv: '*.*:ALL'
+      state: present
