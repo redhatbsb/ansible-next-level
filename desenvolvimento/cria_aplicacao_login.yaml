@@ -10,7 +10,8 @@
      state: latest
 
   - name: Git clone
-    shell: "cd /tmp && git clone https://github.com/redhatbsb/ansible-next-level"  
+    shell: "cd /tmp && git clone https://github.com/redhatbsb/ansible-next-level" 
+    ignore_errors: yes
 
   - name: Gera o pacote
     shell: "cd /tmp/ansible-next-level/desenvolvimento/todo-backend/ && ./mvnw package -DskipTests"
