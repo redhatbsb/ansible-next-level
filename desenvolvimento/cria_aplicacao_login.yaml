@@ -1,0 +1,19 @@
+- hosts: "tag_Name_{{ vm_name }}"
+  tasks:
+  - name: Instala OpenJDK
+    yum:
+     name: java-11-openjdk.x86_64
+     state: latest
+  - name: Instala Git
+    yum:
+     name: git
+     state: latest
+
+  - name: Git clone
+    shell: "cd /tmp && git clone https://github.com/redhatbsb/ansible-next-level"  
+
+  - name: Gera o pacote
+    shell: "cd /tmp/ansible-next-level/desenvolvimento/todo-backend/ && ./mvnw package -DskipTests"
+
+  - name: Sobe a aplicacao
+    shell: "java -jar /tmp/ansible-next-level/desenvolvimento/todo-backend/todo-backend.jar &"
