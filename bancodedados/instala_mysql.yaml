@@ -1,4 +1,6 @@
-- hosts: localhost
+- hosts: "{{ vm_name }}"
   tasks:
-  - name: Teste
-    debug: msg="{{ lookup('env','AWS_ACCESS_KEY_ID') }}"
+  - name: Instala MariaDB
+    yum:
+     name: mariadb
+     state: latest

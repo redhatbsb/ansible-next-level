@@ -1,0 +1,36 @@
+- name: Cria instancia AWS com Centos
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  vars:
+    machine_type_node: t2.micro
+    region: us-east-1
+    preemptible: true
+    tamanho_disco_pequeno: 40
+    tamanho_disco_grande: 50
+    tamanho_disco_adicional: 50
+    master_private_ip: ""
+    infranode_private_ip: ""
+    node1_private_ip: ""
+    image: ami-cb5803a7
+  tasks:
+
+  - name: Cria Instancia AllInOne
+    ec2:
+         aws_access_key: "{{ lookup('env','AWS_ACCESS_KEY_ID') }}"
+         aws_secret_key: "{{ lookup('env','AWS_SECRET_ACCESS_KEY') }}"
+         key_name: "tower"
+         group: "default"
+         instance_type: "{{ machine_type_node }}"
+         image: "{{ image }}"
+         wait: true
+         region: "{{ region }}"
+         vpc_subnet_id: "subnet-f2fdb0b8"
+         instance_tags:
+          Name: "{{ vm_name }}"
+         assign_public_ip: yes
+         volumes:
+          - device_name: /dev/sda1
+            volume_type: gp2
+            volume_size: 40
+    register: ec2
