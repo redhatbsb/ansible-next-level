@@ -1,4 +1,4 @@
 - hosts: localhost
   tasks:
   - name: Teste
-    debug: msg="Teste"
+    debug: msg="{{ AWS_ACCESS_KEY_ID }}"
