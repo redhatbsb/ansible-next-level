@@ -12,13 +12,7 @@
       enabled: yes
 
   - name: Cria database 'quarkus'
-    mysql_db:
-      name: quarkus
-      state: present      
+    shell: mysql -u root -e "create database quarkus"      
 
   - name: Create quarkus user
-    mysql_user:
-      name: quarkus
-      password: quarkus
-      priv: '*.*:ALL'
-      state: present
+    shell: mysql -u root -e "grant all privileges on quarkus.* to quarkus@'localhost' identified by 'quarkus'"
