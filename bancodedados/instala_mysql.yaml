@@ -1,4 +1,4 @@
-- hosts: "{{ vm_name }}"
+- hosts: "tag_Name_{{ vm_name }}"
   tasks:
   - name: Instala MariaDB
     yum:
