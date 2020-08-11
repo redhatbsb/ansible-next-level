@@ -16,4 +16,4 @@
     shell: "cd /tmp/ansible-next-level/desenvolvimento/todo-backend/ && ./mvnw package -DskipTests"
 
   - name: Sobe a aplicacao
-    shell: "java -jar /tmp/ansible-next-level/desenvolvimento/todo-backend/todo-backend.jar &"
+    shell: "java -jar /tmp/ansible-next-level/desenvolvimento/todo-backend/target/todo-backend-1.0.0-SNAPSHOT-runner.jar &"
