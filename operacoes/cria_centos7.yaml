@@ -12,7 +12,7 @@
     master_private_ip: ""
     infranode_private_ip: ""
     node1_private_ip: ""
-    image: ami-cb5803a7
+    image: ami-06cf02a98a61f9f5e
   tasks:
 
   - name: Cria Instancia AllInOne
